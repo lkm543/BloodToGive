@@ -20,7 +20,7 @@
       <!-- Three columns of text below the carousel -->
     <h1>關於BloodtoGive熱血樂捐</h1>
     <p style="text-indent: 2em;font-size:24px">BloodtoGive是一個血庫與捐血人間的平台，目的是要補足兩者之間溝通不易的問題，協助捐血人排養出捐血習慣，並提升血庫庫存的穩定性。</p>
-    <p style="text-indent: 2em;font-size:24px">過去捐血中心在缺血時主要透過新聞媒體報導，在年輕世代普遍不易接收到這樣的資訊，因此我們想要透過網路資訊的傳播來增加這樣訊息的曝光度，並提供更便利的捐血後台服務。我們透過<a href="https://docs.google.com/a/phys.tw/forms/d/1pKfCeGs-pb0RrdflLSK85eRCfgYLzgcYDoIc-5j-HQo/viewanalytics">問卷</a>分析，發現多數捐血人似乎沒有紀錄習慣，而沒有捐血的人似乎在缺血通知後會提升捐血動機。問卷有顯示，經過有效規劃的資訊傳遞，捐血意願可能可以有效提升。</p>
+    <p style="text-indent: 2em;font-size:24px">過去捐血中心在缺血時主要透過新聞媒體報導，在年輕世代普遍不易接收到這樣的資訊，因此我們想要透過網路資訊的傳播來增加這樣訊息的曝光度，並提供更便利的捐血後台服務。我們透過<a href="https://docs.google.com/a/phys.tw/forms/d/1pKfCeGs-pb0RrdflLSK85eRCfgYLzgcYDoIc-5j-HQo/viewanalytics">問卷</a>分析，發現多數捐血人似乎沒有紀錄習慣，而沒有捐血的人似乎在缺血通知後會提升捐血動機。問卷有顯示，經過有效規劃的資訊傳遞，捐血意願可能可以提升不少。</p>
     <p style="text-indent: 2em;font-size:24px">因此我們規劃我們的功能，須能清楚的表示各地區血量情形，並且在適當時機做出主動的推播通知，最後我們提供一個即時導航，讓使用者有時間時在任何地點都可以找到最近的捐血中心。</p>
     <hr class="featurette-divider">
 
@@ -74,8 +74,14 @@
     <hr class="featurette-divider">
         <h1>重大災難中如何運作(情境題)</h1>
         <div style="font-size:24px;">
-            <p style="text-indent: 2em;font-size:24px">在情境題中，其中多項特殊災難都會造成大量需血的情況，但為了簡化我們選擇[台灣海岸因派大星上岸造成大海嘯]，但其實這樣的情境下，災難沒辦法預測準確，再加上血液的保存期限短，因此我們認為只要在發生當時，由血庫端發出各地缺血推播，主動邀請用戶捐血，從我們做的問卷結果來看，有捐血經驗的用戶看到這樣的推播，超過8成的用戶會去捐血，而沒有捐血經驗的用戶，在通知後同樣也會增加捐血意願，因此估計又能夠及時補足血庫缺口，十分簡單方便。</p>
-            <p style="text-indent: 2em;font-size:24px">另外，在災難發生前，我們可以透過統計，歸納出依次推播的回應率大約是多少比例。在災難發生時，由血庫去估計所需的血液量，可保守估計出所需推播量，避免過多捐血造成浪費。</p>
+            <div style="font-size:24px;">
+                <li>情境：台灣海岸因派大星上岸造成大海嘯，海嘯造成大量人員傷亡，急需大量輸血。</li>
+                <li>分析：此類災難預測不易，在加上血液保存期限短的特性，我們認為此機制作用時機是在災難發生後。</li>
+                <li>災難發生前：透過統計，歸納出依次推播的回應率大約是多少比例。在災難發生時，由血庫去估計所需的血液量，可保守估計出所需推播量，避免過多捐血造成浪費。</li>
+                
+                <li>災難發生時：由血庫發出各地缺血推播，主動邀請用戶捐血，從我們做的問卷結果來看，有捐血經驗的用戶看到這樣的推播，超過8成的用戶會去捐血，而沒有捐血經驗的用戶，在通知後同樣也會增加捐血意願，因此估計又能夠即時補足血庫缺口，十分簡單方便。</li>
+            </div>
+            
           
             
         </div>
@@ -110,7 +116,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="img/lee.jpg" alt="Generic placeholder image" style="width: 200px; height: 200px;">
           <h2>李耕銘</h2>
-          <p>台大機械所</p>
+          <p>台大電機所</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="img/lin.jpg" alt="Generic placeholder image" style="width: 200px; height: 200px;">

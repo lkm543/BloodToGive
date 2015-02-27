@@ -31,7 +31,7 @@
 					
 					<tr>
 						<td colspan="2" id="storagestatus">
-							
+							載入血庫狀態中...
 
 						</td>
 					</tr>
@@ -57,7 +57,7 @@
 <script src="style/js/jQuery-tinyMap-master/jquery.tinyMap.min.js"></script>
 
 <script type="text/javascript">
-function findsite(lati,longi){
+function findsite(lati,longi,wtd){
 	var map = $('#map');
 
 	// 模擬目前位置
@@ -74,76 +74,84 @@ function findsite(lati,longi){
 	    {'addr': current, 'text': '<strong>目前位置</strong>', 
 	    'icon': 'http://app.essoduke.org/tinyMap/4.png', 'label': '目前位置', 'css': 'label'},
 	];	
-	map.tinyMap({
+	if (wtd==0) {
+		map.tinyMap({
 
-    'marker': loc,
-    'event': {
-        'idle': {
-            'func': function () {
-            	// alert('123');
-                var i = 0,
-                    icon = {},
-                    pos = {},
-                    distance = [],
-                    nearest = false,
-                    // 取得目前位置的 LatLng 物件
-                    now = new google.maps.LatLng(current[0], current[1]),
-                    // 取得 instance
-                    m = map.data('tinyMap'),
-                    // 取得已建立的標記
-                    markers = m._markers;
-                // 使用迴圈比對標記（忽略最末個）
-                for (i; i < loc.length - 1; i += 1) {
-                    // 建立標記的 LatLng 物件
-                    // if (loc[i].addr[0]!='NaN'&&loc[i].addr[1]!='NaN') {
-                   		pos = new google.maps.LatLng(loc[i].addr[0], loc[i].addr[1]);
-	                    /**
-	                     * 利用幾何圖形庫比對標記與目前位置的測地線直線距離並存入陣列。
-	                     * http://goo.gl/ncP2Gz
-	                     */                    
-	                     distance.push(google.maps.geometry.spherical.computeDistanceBetween(pos, now));
-                    // };
-	            }
-                //console.dir(distance);
-                // 尋找陣列中最小值的索引值
-                nearest = distance.indexOf(Math.min.apply(Math, distance));
-                if (false !== nearest) {
-                    if (undefined !== markers[nearest].infoWindow) {
-                        
-                        // 開啟此標記的 infoWindow
-                        markers[nearest].infoWindow.open(m.map, markers[nearest]);
+	    'marker': loc,
+	    'event': {
+	        'idle': {
+	            'func': function () {
+	            	// alert('123');
+	                var i = 0,
+	                    icon = {},
+	                    pos = {},
+	                    distance = [],
+	                    nearest = false,
+	                    // 取得目前位置的 LatLng 物件
+	                    now = new google.maps.LatLng(current[0], current[1]),
+	                    // 取得 instance
+	                    m = map.data('tinyMap'),
+	                    // 取得已建立的標記
+	                    markers = m._markers;
+	                // 使用迴圈比對標記（忽略最末個）
+	                for (i; i < loc.length - 1; i += 1) {
+	                    // 建立標記的 LatLng 物件
+	                    // if (loc[i].addr[0]!='NaN'&&loc[i].addr[1]!='NaN') {
+	                   		pos = new google.maps.LatLng(loc[i].addr[0], loc[i].addr[1]);
+		                    /**
+		                     * 利用幾何圖形庫比對標記與目前位置的測地線直線距離並存入陣列。
+		                     * http://goo.gl/ncP2Gz
+		                     */                    
+		                     distance.push(google.maps.geometry.spherical.computeDistanceBetween(pos, now));
+	                    // };
+		            }
+	                //console.dir(distance);
+	                // 尋找陣列中最小值的索引值
+	                nearest = distance.indexOf(Math.min.apply(Math, distance));
+	                if (false !== nearest) {
+	                    if (undefined !== markers[nearest].infoWindow) {
+	                        
+	                        // 開啟此標記的 infoWindow
+	                        markers[nearest].infoWindow.open(m.map, markers[nearest]);
 
-                        // 更換此標記的圖示
-                        markers[nearest].setIcon('img/bus.png');
-                        markers[nearest].infoWindow.content += '<p>距離: ' + Math.round(distance[nearest].toString()) + ' 公尺</p>';
-                        var npos = current;
-                        var spos = markers[nearest].position;
-                        map.tinyMap('modify',{
-                        	'direction': [
-							        {
-							            'from': current,
-							            'fromText': '目前所在位置',
-							            'to': spos,
-							            'toText': '最近捐血車位置',
-							            'panel': '#direction-panel',
-							            'autoViewport':'false',
-							            'event': {
-								            'directions_changed': {
-								                'func': function () {
-								                    console.log('路徑規劃完成');
-								                }
-								            }
-								        }
-							         }]
-                        });
-                    }
-                }
-            },
-            'once': true
-        }
-    },
+	                        // 更換此標記的圖示
+	                        markers[nearest].setIcon('img/bus.png');
+	                        markers[nearest].infoWindow.content += '<p>距離: ' + Math.round(distance[nearest].toString()) + ' 公尺</p>';
+	                        var npos = current;
+	                        var spos = markers[nearest].position;
+	                        map.tinyMap('modify',{
+	                        	'direction': [
+								        {
+								            'from': current,
+								            'fromText': '目前所在位置',
+								            'to': spos,
+								            'toText': '最近捐血車位置',
+								            'panel': '#direction-panel',
+								            'autoViewport':'false',
+								            'event': {
+									            'directions_changed': {
+									                'func': function () {
+									                    console.log('路徑規劃完成');
+									                }
+									            }
+									        }
+								         }]
+	                        });
+	                    }
+	                }
+	            },
+	            'once': true
+	        }
+	    },
 						    
-});
+		});
+	}else{
+		map.tinyMap({
+
+	    'marker': loc
+						    
+		});
+	}
 }
 
 	
@@ -203,19 +211,26 @@ function findstatus(lati,longi){
 <script>
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition,showError);
     } else {
+
         alert("無法取得地理資訊位址");
     }
 }
 function showPosition(position) {
 	findstatus(position.coords.latitude,position.coords.longitude);
-	findsite(position.coords.latitude,position.coords.longitude);
+	findsite(position.coords.latitude,position.coords.longitude,0);
 
+}
+function showError(error) {
+  	findsite(0,0,1);
+  	document.getElementById('countryname').innerHTML = '無法取得';
+  	getStorage(0);
 }
 </script>
 
 <script type="text/javascript">
 getLocation();
+
 </script>
 <?php } ?>
