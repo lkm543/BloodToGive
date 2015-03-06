@@ -7,5 +7,5 @@ BloodtoGive是一個血庫與捐血人間的平台，目的是要補足兩者之
 
 
 * 網址:
-	1.主要:http://bloodtogive.azurewebsites.net/index.php
-	2.備用:http://collegebazaar.tw/NTUHackthon/index.php
+	1. 主要:http://bloodtogive.azurewebsites.net/index.php
+	2. 備用:http://collegebazaar.tw/NTUHackthon/index.php
